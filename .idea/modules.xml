@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/metis.iml" filepath="$PROJECT_DIR$/metis.iml" />
+      <module fileurl="file://$PROJECT_DIR$/metis-client/metis-client.iml" filepath="$PROJECT_DIR$/metis-client/metis-client.iml" />
+      <module fileurl="file://$PROJECT_DIR$/metis-common/metis-common.iml" filepath="$PROJECT_DIR$/metis-common/metis-common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/metis-server/metis-server.iml" filepath="$PROJECT_DIR$/metis-server/metis-server.iml" />
+    </modules>
+  </component>
+</project>
