@@ -33,7 +33,13 @@ metis:
 
 
 ```
-//文件上传
+//file模式上传
+metisHelper.uploadByFile();
+
+//stream模式上传
+metisHelper.uploadByStream()
+
+//图片上传
 metisHelper.uploadImage()
 
 //生成下载URL
