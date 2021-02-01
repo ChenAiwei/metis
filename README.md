@@ -34,7 +34,7 @@ metis:
 
 ```
 //file模式上传
-metisHelper.uploadByFile();
+metisHelper.uploadByFile()
 
 //stream模式上传
 metisHelper.uploadByStream()
