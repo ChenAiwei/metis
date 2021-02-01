@@ -10,6 +10,32 @@ spring:
     throw-exception-if-no-handler-found: true
   resources:
     add-mappings: false
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    druid:
+      mysql:
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        url: ENC(syvF4C2doTfEa9hmhbnbBrvrwuExA0iU2QyKf2Axdvy3sLGkm7EofSSf1Ojzx7tn5eG/14xaL18M5c/lv0FTURBduVnttUryTaIJLpoU1Ja+8VBHe8eJiavocOoO3j7WDx7zd7RpHVyWGkHfeb5HVRY291FqWTRONGZy1rZ/ESs=)
+        username: ENC(NMIVZzYm21J8597NHqG8zQ==)
+        password: ENC(t+8nGyvl793gF68+ooR+/A==)
+        initialSize: 20
+        minIdle: 5
+        maxActive: 200
+        maxWait: 60000
+        timeBetweenEvictionRunsMillis: 60000
+        minEvictableIdleTimeMillis: 300000
+        validationQuery: SELECT 1 FROM DUAL
+        dbcp:
+          remove-abandoned: true
+          remove-abandoned-timeout: 180
+        testWhileIdle: true
+        testOnBorrow: false
+        testOnReturn: false
+        poolPreparedStatements: true
+        filters: stat,wall,log4j
+        maxPoolPreparedStatementPerConnectionSize: 20
+        useGlobalDataSourceStat: true
+        connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=500
 management:
   endpoints:
     web:
