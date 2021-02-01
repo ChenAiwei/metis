@@ -2,10 +2,12 @@ package com.boot.metis.common.component;
 
 import cn.hutool.core.collection.CollectionUtil;
 import cn.hutool.core.lang.Assert;
-import com.boot.metis.common.dto.*;
+import com.boot.metis.common.dto.MetisResult;
+import com.boot.metis.common.dto.PicDtos;
+import com.boot.metis.common.dto.PutPolicy;
+import com.boot.metis.common.dto.UploadPicDto;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.codec.binary.Base64;
 import org.apache.commons.codec.digest.HmacUtils;
@@ -47,8 +49,8 @@ public class MetisHelper {
 	@Value("${metis.secretKey}")
 	private String secretKey;
 
-	@Value("${metis.domain}")
-	private String domain;
+	@Value("${metis.host}")
+	private String host;
 
 	@Value("${metis.downloadUrl}")
 	private String downloadUrl;
@@ -60,17 +62,18 @@ public class MetisHelper {
 	/**
 	 * 下载地址
 	 *
-	 * @param bucket
-	 * @param fileName
+	 * @param
+	 * @param
 	 * @param expire
 	 * @return
 	 */
-	public String getDownloadToken(String bucket, String fileName, long expire) {
-		downloadUrl = downloadUrl + "/" + domain + "/" + bucket + "/" + fileName + "?e=" + expire;
-		String encodedSign = Base64.encodeBase64URLSafeString(HmacUtils.hmacSha1(secretKey, downloadUrl));
+	public String getDownloadToken(String filePath, long expire) {
+		String url = host+downloadUrl +"/"+ filePath + "?e=" + expire;
+		String requestUrlWithoutSign = downloadUrl+"/"+ filePath + "?e=" + expire;
+		String encodedSign = Base64.encodeBase64URLSafeString(HmacUtils.hmacSha1(secretKey, requestUrlWithoutSign));
 		String token = accessKey + ":" + encodedSign;
-		downloadUrl += "&token=" + token;
-		return downloadUrl;
+		url += "&token=" + token;
+		return url;
 	}
 
 
@@ -140,7 +143,7 @@ public class MetisHelper {
 	}
 
 	private MetisResult upload(MultipartEntityBuilder builder){
-		HttpPost request = new HttpPost(uploadUrl);
+		HttpPost request = new HttpPost(host+uploadUrl);
 		request.setEntity(builder.build());
 		CloseableHttpClient httpClient = HttpClients.createDefault();
 		try {

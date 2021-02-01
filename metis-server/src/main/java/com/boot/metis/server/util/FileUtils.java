@@ -1,5 +1,6 @@
 package com.boot.metis.server.util;
 
+import com.boot.metis.server.exception.ServiceException;
 import lombok.extern.slf4j.Slf4j;
 
 import javax.servlet.http.HttpServletResponse;

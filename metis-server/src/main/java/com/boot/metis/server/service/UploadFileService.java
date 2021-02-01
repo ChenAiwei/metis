@@ -23,13 +23,14 @@ public class UploadFileService {
     public List<UploadResult> upload(List<PutPolicy> policyList, MultipartFile[] file, String pathPrefix) {
 		List<UploadResult> resultList = new ArrayList<>();
 		for (int i = 0; i < file.length; i++) {
-			String filePath = pathPrefix + gainUserPath(policyList.get(i).getScope());
+			String path = gainUserPath(policyList.get(i).getScope());
+			String filePath = pathPrefix + path;
 			try {
 				File newFile = new File(filePath);
 				if (!newFile.exists()) {
 					newFile.mkdirs();
 					file[i].transferTo(newFile);
-					resultList.add(UploadResult.builder().fileName(policyList.get(i).getFileName()).filePath(filePath).build());
+					resultList.add(UploadResult.builder().fileName(policyList.get(i).getFileName()).filePath(path).build());
 				}
 			} catch (IOException e) {
 			}
