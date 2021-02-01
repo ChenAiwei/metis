@@ -23,7 +23,7 @@ metis:
 在项目中注入
 
 ```
-    @Bean
+    	@Bean
 	public MetisHelper metisHelper(){
 		return new MetisHelper();
 	}
