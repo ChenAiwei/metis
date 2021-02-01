@@ -39,7 +39,7 @@ metisHelper.uploadByFile()
 //stream模式上传
 metisHelper.uploadByStream()
 
-//图片上传
+//BASE64图片上传
 metisHelper.uploadImage()
 
 //生成下载URL
