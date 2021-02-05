@@ -1,11 +1,11 @@
 package com.boot.metis.client.handler;
 
-import com.boot.metis.client.enums.ResultEnum;
 import com.boot.metis.client.exception.PermissionException;
 import com.boot.metis.client.exception.ServiceException;
 import com.boot.metis.client.exception.TokenException;
-import com.boot.metis.client.util.ResultVoUtil;
-import com.boot.metis.client.vo.ResultVo;
+import com.boot.metis.common.enums.ResultEnum;
+import com.boot.metis.common.util.ResultVoUtil;
+import com.boot.metis.common.vo.ResultVo;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.TypeMismatchException;
 import org.springframework.beans.factory.annotation.Value;

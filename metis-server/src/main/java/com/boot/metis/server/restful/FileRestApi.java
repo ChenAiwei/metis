@@ -1,14 +1,14 @@
 package com.boot.metis.server.restful;
 
-import com.boot.metis.common.dto.PutPolicy;
-import com.boot.metis.common.dto.UpToken;
-import com.boot.metis.common.dto.UploadResult;
+import com.boot.metis.common.util.ResultVoUtil;
+import com.boot.metis.common.vo.ResultVo;
+import com.boot.metis.helper.dto.PutPolicy;
+import com.boot.metis.helper.dto.UpToken;
+import com.boot.metis.helper.dto.UploadResult;
 import com.boot.metis.server.exception.ServiceException;
 import com.boot.metis.server.service.MetisService;
 import com.boot.metis.server.service.UploadFileService;
 import com.boot.metis.server.util.FileUtils;
-import com.boot.metis.server.util.ResultVoUtil;
-import com.boot.metis.server.vo.ResultVo;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;

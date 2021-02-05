@@ -1,6 +1,6 @@
 package com.boot.metis.server.service;
 
-import com.boot.metis.common.dto.Auth;
+import com.boot.metis.helper.dto.Auth;
 
 /**
  * @Author：chenaiwei

@@ -1,9 +1,9 @@
 package com.boot.metis.server.service;
 
-import com.boot.metis.common.dto.Auth;
-import com.boot.metis.common.dto.DownToken;
-import com.boot.metis.common.dto.PutPolicy;
-import com.boot.metis.common.dto.UpToken;
+import com.boot.metis.helper.dto.Auth;
+import com.boot.metis.helper.dto.DownToken;
+import com.boot.metis.helper.dto.PutPolicy;
+import com.boot.metis.helper.dto.UpToken;
 import com.boot.metis.server.exception.ServiceException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;

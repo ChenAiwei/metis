@@ -5,9 +5,10 @@
     <modelVersion>4.0.0</modelVersion>
     <modules>
         <module>metis-server</module>
-        <module>metis-common</module>
+        <module>metis-helper</module>
         <module>metis-client</module>
         <module>metis-feign</module>
+        <module>metis-common</module>
     </modules>
     <groupId>com.boot.metis</groupId>
     <artifactId>metis</artifactId>
@@ -19,13 +20,14 @@
         <maven.compiler.target>1.8</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <java.version>1.8</java.version>
+        <spring-cloud-version>Hoxton.RELEASE</spring-cloud-version>
+        <alibaba-cloud-version>2.2.0.RELEASE</alibaba-cloud-version>
         <tomcat-embed-core.version>9.0.24</tomcat-embed-core.version>
         <jackson-databind.version>2.11.2</jackson-databind.version>
         <log4j.version>1.2.17</log4j.version>
         <google-code-gson.version>2.7</google-code-gson.version>
         <commons.collections.version>3.2.2</commons.collections.version>
         <hutool.version>5.3.8</hutool.version>
-        <nacos.version>0.2.7</nacos.version>
         <jasypt.version>2.1.1</jasypt.version>
         <alibaba-druid.version>1.1.9</alibaba-druid.version>
         <mysql-connector.vsersion>8.0.15</mysql-connector.vsersion>
@@ -38,45 +40,22 @@
         <version>2.2.2.RELEASE</version>
     </parent>
 
+    <dependencyManagement>
         <dependencies>
             <dependency>
-                <groupId>org.apache.commons</groupId>
-                <artifactId>commons-lang3</artifactId>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring-cloud-version}</version>
+                <type>pom</type>
+                <scope>import</scope>
             </dependency>
             <dependency>
-                <groupId>commons-collections</groupId>
-                <artifactId>commons-collections</artifactId>
-                <version>${commons.collections.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.fasterxml.jackson.core</groupId>
-                <artifactId>jackson-databind</artifactId>
-                <version>${jackson-databind.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.projectlombok</groupId>
-                <artifactId>lombok</artifactId>
-                <scope>compile</scope>
-            </dependency>
-            <dependency>
-                <groupId>log4j</groupId>
-                <artifactId>log4j</artifactId>
-                <version>${log4j.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.google.code.gson</groupId>
-                <artifactId>gson</artifactId>
-                <version>${google-code-gson.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>cn.hutool</groupId>
-                <artifactId>hutool-all</artifactId>
-                <version>${hutool.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.github.ulisesbocchio</groupId>
-                <artifactId>jasypt-spring-boot-starter</artifactId>
-                <version>${jasypt.version}</version>
+                <groupId>com.alibaba.cloud</groupId>
+                <artifactId>spring-cloud-alibaba-dependencies</artifactId>
+                <version>${alibaba-cloud-version}</version>
+                <type>pom</type>
+                <scope>import</scope>
             </dependency>
         </dependencies>
+    </dependencyManagement>
 </project>

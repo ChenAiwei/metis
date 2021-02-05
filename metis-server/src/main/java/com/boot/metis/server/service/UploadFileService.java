@@ -1,7 +1,7 @@
 package com.boot.metis.server.service;
 
-import com.boot.metis.common.dto.PutPolicy;
-import com.boot.metis.common.dto.UploadResult;
+import com.boot.metis.helper.dto.PutPolicy;
+import com.boot.metis.helper.dto.UploadResult;
 import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;
 

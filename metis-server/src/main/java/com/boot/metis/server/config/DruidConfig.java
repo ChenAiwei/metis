@@ -1,9 +1,17 @@
 package com.boot.metis.server.config;
 
+import cn.hutool.core.util.CharsetUtil;
+import cn.hutool.crypto.Mode;
+import cn.hutool.crypto.Padding;
+import cn.hutool.crypto.SecureUtil;
+import cn.hutool.crypto.symmetric.AES;
+import cn.hutool.crypto.symmetric.SymmetricAlgorithm;
 import com.alibaba.druid.pool.DruidDataSource;
 import com.alibaba.druid.support.http.StatViewServlet;
 import com.alibaba.druid.support.http.WebStatFilter;
+import com.boot.metis.common.util.DESCryptUtil;
 import lombok.extern.slf4j.Slf4j;
+import org.bouncycastle.jcajce.provider.asymmetric.util.DESUtil;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.boot.web.servlet.ServletRegistrationBean;
@@ -80,14 +88,18 @@ public class DruidConfig {
     @Value("${spring.datasource.druid.mysql.connectionProperties}")
     private String connectionProperties;
 
-    @Bean // 声明其为Bean实例
+	@Value("${spring.datasource.druid.mysql.publicKey}")
+	private String publicKey;
+
+
+	@Bean // 声明其为Bean实例
     @Primary // 在同样的DataSource中，首先使用被标注的DataSource
     public DataSource dataSource() {
         DruidDataSource datasource = new DruidDataSource();
 
-        datasource.setUrl(this.dbUrl);
-        datasource.setUsername(username);
-        datasource.setPassword(password);
+        datasource.setUrl(DESCryptUtil.decrypt(this.dbUrl,this.publicKey));
+        datasource.setUsername(DESCryptUtil.decrypt(this.username,this.publicKey));
+        datasource.setPassword(DESCryptUtil.decrypt(this.password,this.publicKey));
         datasource.setDriverClassName(driverClassName);
 
         // configuration
@@ -145,4 +157,15 @@ public class DruidConfig {
 
         return bean;
     }
+
+	public static void main(String[] args) {
+		String value = "MFwwDQYJKoZIhvm6";
+		AES aes = new AES(Mode.CTS, Padding.PKCS5Padding, value.getBytes(),value.getBytes());
+		String encryptHex  = aes.encryptHex("root");
+		String decryptStr = aes.decryptStr(encryptHex, CharsetUtil.CHARSET_UTF_8);
+		System.out.println(" = " + value + "," + "当前类=DruidConfig.main()");
+		System.out.println(" = " + encryptHex + "," + "当前类=DruidConfig.main()");
+		System.out.println(" = " + decryptStr + "," + "当前类=DruidConfig.main()");
+
+	}
 }

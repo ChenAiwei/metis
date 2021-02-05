@@ -1,10 +1,37 @@
-server:
-  port: 8890
-nacos:
-  discovery:
-    server-addr: 47.115.166.117:8848
-  config:
-    server-addr: 47.115.166.117:8848
+spring:
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 47.115.166.117:8848
+        group: ${spring.profiles.active}
+        namespace: 51bcd72d-fc8d-4a58-a64c-e323fce089a9
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    druid:
+      mysql:
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        url: ROb0JSCHlm1xw5jGa9m5Gb/OZGBu9ZIzm1kFG/MzDxFjgvAmfrRKhJHHce7+CAI0dlmToFw2S77NarAeVwYQ+a9z2rQ3nyGoBD1lbI8GunzaD2zVBGDiMIfVy0LWUpgpmxVn2tDn8JEICx6RvbNiX8TRadb3lHGD
+        username: TyA5wdd81XU=
+        password: d4mvkY7YNJM=
+        initialSize: 20
+        minIdle: 5
+        maxActive: 200
+        maxWait: 60000
+        timeBetweenEvictionRunsMillis: 60000
+        minEvictableIdleTimeMillis: 300000
+        validationQuery: SELECT 1 FROM DUAL
+        dbcp:
+          remove-abandoned: true
+          remove-abandoned-timeout: 180
+        testWhileIdle: true
+        testOnBorrow: false
+        testOnReturn: false
+        poolPreparedStatements: true
+        filters: stat,wall,log4j
+        maxPoolPreparedStatementPerConnectionSize: 20
+        useGlobalDataSourceStat: true
+        connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=500
+        publicKey: MFwwDQYJKoZIhvm6
 metis:
   accessKey: QdtxCxaz0M6uWZ48s-UGq_hKbhUuXIEKV0c4b_db
   secretKey: 2ZQtoKP1soQ9MWnAxwTdxm-3mv-EqgzqDcYuxBOC

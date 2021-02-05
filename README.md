@@ -2,10 +2,11 @@
 ##### 文件上传下载服务器
 **使用方法：**
 
-1. 启动metsi-server
-2. 第三方项目依赖metis-common
-3. 配置yml属性
-4. 调用相应的API接口
+1. 启动nacos
+2. 启动metsi-server
+3. 第三方项目依赖metis-helper
+4. 配置yml属性
+5. 调用相应的API接口
 
 **==注==：**
     项目中必须配置的yml属性示例如下
