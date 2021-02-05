@@ -25,9 +25,6 @@ management:
       sensitive: false
     restart:
       enabled: false
-jasypt:
-  encryptor:
-    password: hB0_kA1@eD05eE0`aA0(kB0)cG2+jE
 feign:
   sentinel:
     enabled: true
