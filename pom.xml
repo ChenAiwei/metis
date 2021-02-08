@@ -9,6 +9,7 @@
         <module>metis-client</module>
         <module>metis-feign</module>
         <module>metis-common</module>
+        <module>metis-gateway</module>
     </modules>
     <groupId>com.boot.metis</groupId>
     <artifactId>metis</artifactId>
