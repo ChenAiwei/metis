@@ -14,5 +14,5 @@ import org.springframework.web.bind.annotation.GetMapping;
 @FeignClient(name = "metis-server",fallbackFactory = FeignFallbackFactory.class,configuration = FeignConfig.class)
 public interface FeignTest {
 	@GetMapping("/test")
-	ResultVo<Long> get();
+	ResultVo<String> get();
 }

@@ -18,7 +18,7 @@ public class FeignFallbackFactory implements FallbackFactory<FeignTest>{
 		throwable.printStackTrace();
 		return new FeignTest() {
 			@Override
-			public ResultVo<Long> get() {
+			public ResultVo<String> get() {
 				return ResultVoUtil.error(throwable.toString());
 			}
 		};
