@@ -2,6 +2,7 @@ package com.boot.metis.server.service;
 
 import com.boot.metis.helper.dto.Auth;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
@@ -14,6 +15,7 @@ import java.util.Map;
  * @CreateDate：2021/1/27 14:33
  */
 @Service
+@RefreshScope
 public class AuthServiceImpl implements AuthService {
 
 	private Map<String, Auth> data = new HashMap<String, Auth>();

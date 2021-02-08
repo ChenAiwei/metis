@@ -12,13 +12,6 @@ spring:
     throw-exception-if-no-handler-found: false
   resources:
     add-mappings: false
-  cloud:
-    nacos:
-      config:
-        server-addr: 47.115.166.117:8848
-        file-extension: yml
-        group: ${spring.profiles.active}
-        namespace: b2fcfbce-0a9b-480b-ba20-a0e58bf4ce3e
 management:
   endpoints:
     web:

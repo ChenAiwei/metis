@@ -4,7 +4,13 @@ spring:
       discovery:
         server-addr: 47.115.166.117:8848
         group: ${spring.profiles.active}
-        namespace: 51bcd72d-fc8d-4a58-a64c-e323fce089a9
+        namespace: b2fcfbce-0a9b-480b-ba20-a0e58bf4ce3e
+      config:
+        server-addr: 47.115.166.117:8848
+        prefix: ${spring.application.name}
+        file-extension: yml
+        group: ${spring.profiles.active}
+        namespace: b2fcfbce-0a9b-480b-ba20-a0e58bf4ce3e
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource
     druid:
@@ -35,4 +41,4 @@ spring:
 metis:
   accessKey: QdtxCxaz0M6uWZ48s-UGq_hKbhUuXIEKV0c4b_db
   secretKey: 2ZQtoKP1soQ9MWnAxwTdxm-3mv-EqgzqDcYuxBOC
-  hidePath: /opt/files/
+  hidePath: D:/fileUpload/
