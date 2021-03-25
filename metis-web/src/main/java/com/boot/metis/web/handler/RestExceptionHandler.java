@@ -1,4 +1,4 @@
-package com.boot.metis.server.config;
+package com.boot.metis.web.handler;
 
 import com.boot.metis.common.enums.ResultEnum;
 import com.boot.metis.common.exception.PermissionException;
@@ -7,7 +7,6 @@ import com.boot.metis.common.exception.TokenException;
 import com.boot.metis.common.util.ResultVoUtil;
 import com.boot.metis.common.vo.ResultVo;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.TypeMismatchException;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.converter.HttpMessageNotReadableException;
@@ -142,9 +141,6 @@ public class RestExceptionHandler {
         if (PRO_FILE_STR.equals(profiles)) {
             return ResultVoUtil.error("系统异常");
         }
-        if (StringUtils.isNotBlank(e.getMessage())){
-			return ResultVoUtil.error(e.getMessage());
-		}
         int count = 0;
         StringBuffer stringBuffer = new StringBuffer();
         for (StackTraceElement stackTraceElement : e.getStackTrace()) {

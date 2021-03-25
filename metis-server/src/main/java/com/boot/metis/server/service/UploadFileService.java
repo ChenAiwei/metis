@@ -11,9 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * @author huangjun
- * @creation_date 2017/3/10
- * @version 1.0
+ * @author aiwei
  */
 @Component
 public class UploadFileService {

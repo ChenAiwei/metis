@@ -1,0 +1,7 @@
+spring:
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 1.15.108.136:8848
+        group: ${spring.profiles.active}
+        namespace: b2fcfbce-0a9b-480b-ba20-a0e58bf4ce3e

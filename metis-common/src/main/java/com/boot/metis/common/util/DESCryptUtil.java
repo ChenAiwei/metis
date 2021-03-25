@@ -85,4 +85,8 @@ public class DESCryptUtil {
 		SecretKeyFactory keyFactory = SecretKeyFactory.getInstance(ALGORITHM);
 		return keyFactory.generateSecret(dks);
 	}
+
+	public static void main(String[] args) {
+		System.out.println(" = " + DESCryptUtil.decrypt("ROb0JSCHlm2evkQvLodfSBRy4qjICTrkpbGaxBBzghMl+q2MhFIvgav4H5jwL+yXs5Yp7FlwY0+4KNHn4ImXl1rOmc4bgjrzSEynJh8FnmiO3n5nc0JvrIBzgD5HDo/W/W8tXEMWVxhaY51WEbR5/NcCSmlHB+RO","MFwwDQYJKoZIhvm6") + "," + "当前类=DESCryptUtil.main()");
+	}
 }

@@ -6,10 +6,10 @@
     <modules>
         <module>metis-server</module>
         <module>metis-helper</module>
-        <module>metis-client</module>
         <module>metis-feign</module>
         <module>metis-common</module>
         <module>metis-gateway</module>
+        <module>metis-web</module>
     </modules>
     <groupId>com.boot.metis</groupId>
     <artifactId>metis</artifactId>
